@@ -1,6 +1,8 @@
 # Csf31l
 
 ## Commands
+To generate a new Angular project: `ng new <project name> --standalone=false --routing=false --skip-git`
+
 To load angular app: `ng serve`
 
 
