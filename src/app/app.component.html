@@ -1,0 +1,32 @@
+
+
+<main class="main">
+  <h1>{{title}}</h1>
+  <p >{{allClicks}}</p>
+
+  <app-input (onNewText)="whenNewText($event)"></app-input>
+
+
+  
+  @if (texts.length > 0) {
+    @for (t of texts; let idx =  $index; track t) {
+      <app-text [myText]="idx + ': ' + t" (totalClicks)="whenTotalClicks($event, idx)"></app-text>
+      <!-- totalClicks is the output event 
+        The parent does not know what is happening in the Text component. It only knows when an event is fired. 
+        Parent can pass data through input and attribute binding. -->
+    }
+    
+  }
+  @else {
+    <p>No phrases to display.</p>
+  }
+
+  <hr>
+  <!-- Better way of display index: -->
+  <ol>
+  @for (t of texts; track $index) {
+    <li><app-text [myText]="t"></app-text></li>
+  }
+</ol>
+</main>
+
